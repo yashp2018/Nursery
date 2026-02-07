@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Sanap Hi-Tech Nursery</title>
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/nursery-custom.css">
+    
+    <style>
+        body {
+            background: linear-gradient(135deg, var(--light-green) 0%, var(--neutral-cream) 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .admin-login-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 40px;
+            width: 100%;
+            max-width: 400px;
+        }
+        
+        .admin-logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .admin-logo img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="admin-login-card">
+                    <div class="admin-logo">
+                        <img src="../img/core-img/logo.png" alt="Sanap Hi-Tech Nursery">
+                        <h4 class="text-dark-green">Admin Panel</h4>
+                        <p class="text-muted">Sanap Hi-Tech Nursery</p>
+                    </div>
+                    
+                    <form id="adminLoginForm" onsubmit="adminLogin(event)">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control" id="username" name="username" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <button type="submit" class="btn-primary-green w-100">
+                                <i class="fa fa-sign-in mr-2"></i>Login
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <div class="text-center mt-3">
+                        <small class="text-muted">
+                            Demo Credentials:<br>
+                            Username: admin<br>
+                            Password: nursery123
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="../js/jquery/jquery-2.2.4.min.js"></script>
+    <script src="../js/bootstrap/bootstrap.min.js"></script>
+    
+    <script>
+        function adminLogin(event) {
+            event.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            // Simple demo authentication (in production, use proper authentication)
+            if (username === 'admin' && password === 'nursery123') {
+                // Store login status
+                localStorage.setItem('adminLoggedIn', 'true');
+                localStorage.setItem('adminUsername', username);
+                
+                // Redirect to dashboard
+                window.location.href = 'dashboard.html';
+            } else {
+                alert('Invalid credentials. Please try again.');
+            }
+        }
+        
+        // Check if already logged in
+        if (localStorage.getItem('adminLoggedIn') === 'true') {
+            window.location.href = 'dashboard.html';
+        }
+    </script>
+</body>
+</html>

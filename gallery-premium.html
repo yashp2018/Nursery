@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Gallery - Sanap Hi-Tech Nursery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="gallery-premium.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg"></div>
+    
+    <!-- Cursor Glow -->
+    <div class="cursor-glow"></div>
+
+    <!-- Header -->
+    <header class="gallery-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>🌿 Sanap Gallery</h1>
+                    <p>28+ Years of Excellence</p>
+                </div>
+                <div class="header-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" id="imageCount">0</span>
+                        <span class="stat-label">Images</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="likeCount">0</span>
+                        <span class="stat-label">Likes</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Search & Filter Section -->
+    <section class="controls-section">
+        <div class="container">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Search gallery...">
+            </div>
+            
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">
+                    <span>🌿</span> All
+                </button>
+                <button class="filter-btn" data-filter="plants">
+                    <span>🌱</span> Plants
+                </button>
+                <button class="filter-btn" data-filter="nursery">
+                    <span>🏡</span> Nursery
+                </button>
+                <button class="filter-btn" data-filter="grafting">
+                    <span>🔬</span> Grafting
+                </button>
+                <button class="filter-btn" data-filter="farmers">
+                    <span>👨‍🌾</span> Farmers
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Grid -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Gallery items will be dynamically loaded -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Fullscreen Modal -->
+    <div class="modal" id="imageModal">
+        <button class="modal-close" onclick="closeModal()">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="modal-content">
+            <img id="modalImage" src="" alt="">
+            <div class="modal-info">
+                <h3 id="modalTitle"></h3>
+                <p id="modalCategory"></p>
+            </div>
+            <div class="modal-nav">
+                <button class="modal-nav-btn" onclick="prevImage()">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="modal-nav-btn" onclick="nextImage()">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="gallery-premium.js"></script>
+</body>
+</html>
